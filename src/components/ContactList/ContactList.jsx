@@ -1,9 +1,9 @@
 import {
   useDeleteContactMutation,
   useFetchContactsQuery,
-} from '../../serviceAPI/contactsAPI';
+} from '../../redux/contactsAPI/contacts-API';
 import { useSelector } from 'react-redux';
-import { getFilter } from '../../serviceAPI/selectors';
+import { getFilter } from '../../redux/contactsAPI/filter-selectors';
 import s from './ContactList.module.css';
 
 export default function ContactList() {

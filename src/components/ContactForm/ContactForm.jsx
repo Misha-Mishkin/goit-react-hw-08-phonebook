@@ -1,7 +1,7 @@
 import {
   useCreateContactMutation,
   useFetchContactsQuery,
-} from '../../serviceAPI/contactsAPI';
+} from '../../redux/contactsAPI/contacts-API';
 import { useState } from 'react';
 import s from './ContactForm.module.css';
 

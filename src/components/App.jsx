@@ -1,16 +1,27 @@
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
-import Filter from './Filter';
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import Container from './Container';
+import AppBar from './AppBar';
+import Loader from './Loader';
+
+const Home = lazy(() => import('../pages/Home'));
+const Register = lazy(() => import('../pages/Register'));
+const Login = lazy(() => import('../pages/Login'));
+const Contacts = lazy(() => import('../pages/Contacts'));
 
 export default function App() {
-
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter title="Find contact by name" />
-      {<ContactList />}
-    </div>
+    <Container>
+      <AppBar />
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/contacts" element={<Contacts />}></Route>
+        </Routes>
+      </Suspense>
+    </Container>
   );
 }

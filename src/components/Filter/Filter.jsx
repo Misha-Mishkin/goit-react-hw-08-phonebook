@@ -1,5 +1,5 @@
-import { changeFilter } from '../../serviceAPI/filterSlice';
-import { getFilter } from '../../serviceAPI/selectors';
+import { changeFilter } from '../../redux/contactsAPI/filter-slice';
+import { getFilter } from '../../redux/contactsAPI/filter-selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import s from './Filter.module.css';
