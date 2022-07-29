@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const contactAPI = createApi({
   reducerPath: 'contactsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://connections-api.herokuapp.com',
+    baseUrl: 'https://connections-api.herokuapp.com/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 
@@ -16,6 +16,8 @@ export const contactAPI = createApi({
       return headers;
     },
   }),
+  refetchOnMountOrArgChange: true,
+
   tagTypes: ['Contact'],
   endpoints: builder => ({
     fetchContacts: builder.query({
