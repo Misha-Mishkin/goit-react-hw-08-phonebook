@@ -20,10 +20,10 @@ export default function ContactList() {
       {isLoading && <p>Loading...</p>}
 
       {renderContacts &&
-        renderContacts.map(({ id, name, phone }) => {
+        renderContacts.map(({ id, name, number }) => {
           return (
             <li key={id} className={s.item}>
-              {name}: {phone}
+              {name}: {number}
               <button
                 type="button"
                 onClick={() => handleDelete(id)}
