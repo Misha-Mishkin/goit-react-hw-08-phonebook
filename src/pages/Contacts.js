@@ -11,9 +11,7 @@ export default function Contacts() {
         backgroundImage:
           'url(https://s1.1zoom.ru/big0/428/Apple_iPhone_Macbook_Laptops_Glasses_Telephone_519457_1280x853.jpg)',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        maWidth: 800,
-        height: 400,
+        backgroundSize: 'cover',
         pt: 8,
         pb: 30,
       }}
