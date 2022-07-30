@@ -1,16 +1,15 @@
 import { changeFilter } from '../../redux/contactsAPI/filter-slice';
 import { getFilter } from '../../redux/contactsAPI/filter-selectors';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import s from './Filter.module.css';
 
-export default function Filter({ title }) {
+export default function Filter() {
   const value = useSelector(getFilter);
   const dispatch = useDispatch();
 
   return (
     <label>
-      <p className={s.text}>{title}</p>
+      <p className={s.text}></p>
       <input
         type="text"
         name="filter"
@@ -21,7 +20,3 @@ export default function Filter({ title }) {
     </label>
   );
 }
-
-Filter.propTypes = {
-  title: PropTypes.string.isRequired,
-};

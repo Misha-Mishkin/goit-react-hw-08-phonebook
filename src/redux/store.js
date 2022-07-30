@@ -35,9 +35,7 @@ export const store = configureStore({
     [filterSlice.name]: filterSlice.reducer,
   },
   middleware,
-  // middleware: getDefaultMiddleware => [
-  //   ...getDefaultMiddleware().concat(contactAPI.middleware),
-  // ],
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);

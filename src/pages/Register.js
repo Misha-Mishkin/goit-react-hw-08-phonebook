@@ -3,8 +3,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -14,8 +12,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import authOperations from '../redux/authAPI/auth-operation';
-
 
 function Copyright(props) {
   return (
@@ -62,12 +60,6 @@ export default function Register() {
     setName('');
     setEmail('');
     setPassword('');
-    // const data = new FormData(event.currentTarget);
-    // console.log({
-    //   name: data.get('name'),
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
   };
 
   return (
@@ -134,14 +126,6 @@ export default function Register() {
                   onChange={handleChange}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
-                />
-              </Grid>
             </Grid>
             <Button
               type="submit"
@@ -153,9 +137,9 @@ export default function Register() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link>
+                <NavLink to="/login" variant="body2">
+                  Already have an account? Login!
+                </NavLink>
               </Grid>
             </Grid>
           </Box>
