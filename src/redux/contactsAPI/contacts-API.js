@@ -17,7 +17,7 @@ export const contactAPI = createApi({
     },
   }),
 
-  // refetchOnMountOrArgChange: true,
+  refetchOnMountOrArgChange: true,
 
   tagTypes: ['Contact'],
   endpoints: builder => ({

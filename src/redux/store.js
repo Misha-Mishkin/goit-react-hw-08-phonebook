@@ -20,6 +20,7 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
+  contactAPI.middleware,
 ];
 
 const authPersistConfig = {
@@ -35,6 +36,7 @@ export const store = configureStore({
     [filterSlice.name]: filterSlice.reducer,
   },
   middleware,
+
   devTools: process.env.NODE_ENV === 'development',
 });
 
