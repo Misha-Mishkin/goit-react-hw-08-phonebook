@@ -15,6 +15,7 @@ const Home = lazy(() => import('../pages/Home'));
 const Register = lazy(() => import('../pages/Register'));
 const Login = lazy(() => import('../pages/Login'));
 const Contacts = lazy(() => import('../pages/Contacts'));
+const ErrorPage = lazy(() => import('../pages/ErrorPage'));
 
 export default function App() {
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
@@ -69,6 +70,7 @@ export default function App() {
                   </PrivateRoute>
                 }
               ></Route>
+              <Route path="*" element={<ErrorPage />}></Route>
             </Routes>
           </Suspense>
         </>

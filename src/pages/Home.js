@@ -9,6 +9,8 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { NavLink } from 'react-router-dom';
+import authSelectors from '../redux/authAPI/auth-selectors';
+import { useSelector } from 'react-redux';
 
 function Copyright() {
   return (
@@ -26,6 +28,9 @@ function Copyright() {
 const theme = createTheme();
 
 export default function Home() {
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const name = useSelector(authSelectors.getUsername);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -42,28 +47,54 @@ export default function Home() {
           }}
         >
           <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
-              gutterBottom
-            >
-              Welcome to your contact book
-            </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <NavLink to="/register">
-                <Button variant="contained">Register</Button>
-              </NavLink>
-              <NavLink to="/login">
-                <Button variant="contained">Login</Button>
-              </NavLink>
-            </Stack>
+            {isLoggedIn ? (
+              <>
+                <Typography
+                  component="h1"
+                  variant="h2"
+                  align="center"
+                  color="text.primary"
+                  gutterBottom
+                >
+                  Welcome, {name}!
+                </Typography>
+                <Stack
+                  sx={{ pt: 4 }}
+                  direction="row"
+                  spacing={2}
+                  justifyContent="center"
+                >
+                  <NavLink to="/contacts">
+                    <Button variant="contained">My contacts</Button>
+                  </NavLink>
+                </Stack>
+              </>
+            ) : (
+              <>
+                <Typography
+                  component="h1"
+                  variant="h2"
+                  align="center"
+                  color="text.primary"
+                  gutterBottom
+                >
+                  Welcome to your contact book
+                </Typography>
+                <Stack
+                  sx={{ pt: 4 }}
+                  direction="row"
+                  spacing={2}
+                  justifyContent="center"
+                >
+                  <NavLink to="/register">
+                    <Button variant="contained">Register</Button>
+                  </NavLink>
+                  <NavLink to="/login">
+                    <Button variant="contained">Login</Button>
+                  </NavLink>
+                </Stack>
+              </>
+            )}
           </Container>
         </Box>
       </main>

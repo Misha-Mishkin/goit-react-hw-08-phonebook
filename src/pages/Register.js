@@ -57,9 +57,6 @@ export default function Register() {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(authOperations.register({ name, email, password }));
-    setName('');
-    setEmail('');
-    setPassword('');
   };
 
   return (

@@ -54,8 +54,6 @@ export default function Login() {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(authOperations.logIn({ email, password }));
-    setEmail('');
-    setPassword('');
   };
 
   return (
